@@ -35,6 +35,7 @@ const App: React.FC = () => {
       setAnalysisData(data);
       setAppState(AppState.DASHBOARD);
     } catch (err) {
+      console.error("API 호출 오류:", err);
       setErrorMsg("분석 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
       setAppState(AppState.INPUT);
     }
@@ -102,36 +103,12 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 text-slate-200 flex flex-col font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
       <Navbar />
-
       <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <section className="text-center mb-8">
           <h1 className="text-4xl font-extrabold text-white tracking-tight mb-4">유튜브 대본을 AI로 분석하고 확장하세요</h1>
           <p className="text-lg text-slate-300">기존 대본을 붙여넣으세요. AI가 스타일을 분석하고 시청자가 반응할 새로운 영상 주제를 제안합니다.</p>
         </section>
-
-        <div className="bg-slate-800/50 rounded-lg shadow-lg p-6">
-          <textarea
-            className="w-full h-32 bg-slate-900 text-slate-200 border border-slate-700 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            placeholder="대본을 입력하세요..."
-          ></textarea>
-          <button className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition">분석 시작하기</button>
-        </div>
-
-        <section className="mt-8">
-          <h2 className="text-2xl font-bold text-white mb-4">스타일 분석</h2>
-          <p className="text-slate-300">대본의 톤앤매너와 태그를 정밀하게 파악합니다.</p>
-
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">주제 추천</h2>
-          <p className="text-slate-300">채널 성장에 도움이 될 바이럴 주제를 제안합니다.</p>
-
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">대본 생성</h2>
-          <p className="text-slate-300">클릭 한 번으로 완성된 대본을 받아보세요.</p>
-        </section>
       </main>
-
-      <footer className="text-center text-slate-400 text-sm py-4">
-        © 2025 튜브지니어스 AI. Google Gemini 기술 기반.
-      </footer>
     </div>
   );
 };
