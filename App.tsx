@@ -14,6 +14,7 @@ import {
   Check, 
   ArrowLeft 
 } from 'lucide-react';
+import { Dialog, DialogContent, DialogTitle } from '@radix-ui/react-dialog';
 
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.INPUT);
@@ -353,6 +354,13 @@ const App: React.FC = () => {
           </div>
         )}
 
+        {/* Example Dialog - Radix UI 사용 예시 */}
+        <Dialog>
+          <DialogContent aria-describedby="dialog-description">
+            <DialogTitle>대화 상자 제목</DialogTitle>
+            <p id="dialog-description">대화 상자 내용입니다.</p>
+          </DialogContent>
+        </Dialog>
       </main>
 
       <footer className="border-t border-slate-900 py-10 mt-auto bg-slate-950">
